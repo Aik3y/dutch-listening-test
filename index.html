@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Luistertoets Nederlands</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background: #f5f5f5; border-radius: 10px; }
+    h1 { text-align: center; }
+    label { display: block; margin-top: 20px; font-weight: bold; }
+    input[type="text"], textarea { width: 100%; padding: 10px; margin-top: 8px; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Luistertoets Nederlands</h1>
+
+  <p>Luister naar de audio en beantwoord de vragen in het Nederlands.</p>
+
+  <audio controls>
+    <source src="anna_audio.mp3" type="audio/mpeg">
+    Je browser ondersteunt geen audio.
+  </audio>
+
+  <form id="quiz-form">
+    <label for="vraag1">1. Waar woont Anna?</label>
+    <input type="text" id="vraag1" name="vraag1">
+
+    <label for="vraag2">2. Wat doet Anna in het weekend?</label>
+    <input type="text" id="vraag2" name="vraag2">
+
+    <button type="submit">Verstuur</button>
+  </form>
+
+  <div id="feedback"></div>
+
+  <script>
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const antwoord1 = document.getElementById('vraag1').value.trim().toLowerCase();
+      const antwoord2 = document.getElementById('vraag2').value.trim().toLowerCase();
+
+      let feedback = "<h2>Feedback:</h2>";
+
+      if (antwoord1.includes("amsterdam")) {
+        feedback += "<p>✅ Vraag 1 is correct!</p>";
+      } else {
+        feedback += "<p>❌ Vraag 1 is niet correct. Het juiste antwoord is: Amsterdam.</p>";
+      }
+
+      if (antwoord2.includes("park")) {
+        feedback += "<p>✅ Vraag 2 is correct!</p>";
+      } else {
+        feedback += "<p>❌ Vraag 2 is niet correct. Het juiste antwoord is: Ze gaat naar het park.</p>";
+      }
+
+      document.getElementById('feedback').innerHTML = feedback;
+    });
+  </script>
+</body>
+</html>
