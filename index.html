@@ -1,1 +1,133 @@
-<html><body><h1>Luistertoets Pagina</h1></body></html>
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luistertoets Nederlands</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .levels {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .levels button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: none;
+      background: #007acc;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .levels button:hover {
+      background: #005fa3;
+    }
+    audio {
+      width: 100%;
+      margin: 20px 0;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .buttons button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit {
+      background: #28a745;
+      color: white;
+    }
+    .skip {
+      background: #ffc107;
+      color: black;
+    }
+    .next {
+      background: #007bff;
+      color: white;
+      margin-top: 20px;
+    }
+    #feedback {
+      background: #eef6ff;
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Luistertoets Nederlands</h1>
+    <div class="levels">
+      <button onclick="alert('Laad makkelijke vragen')">Makkelijk</button>
+      <button onclick="alert('Laad gemiddelde vragen')">Gemiddeld</button>
+      <button onclick="alert('Laad moeilijke vragen')">Moeilijk</button>
+    </div>
+
+    <audio controls>
+      <source src="audio/voorbeeld.mp3" type="audio/mpeg" />
+      Je browser ondersteunt geen audio.
+    </audio>
+
+    <form>
+      <label for="vraag1">1. Wat hoor je in het fragment?</label>
+      <input type="text" id="vraag1" name="vraag1" />
+
+      <label for="vraag2">2. Wie spreekt er?</label>
+      <input type="text" id="vraag2" name="vraag2" />
+
+      <label for="vraag3">3. Wat is het onderwerp?</label>
+      <input type="text" id="vraag3" name="vraag3" />
+
+      <div class="buttons">
+        <button type="submit" class="submit">Verstuur</button>
+        <button type="button" class="skip">Sla over</button>
+      </div>
+    </form>
+
+    <div id="feedback">
+      <!-- Hier komt feedback na het invullen -->
+    </div>
+
+    <button class="next">Volgende opdracht</button>
+  </div>
+</body>
+</html>
